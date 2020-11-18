@@ -5,7 +5,7 @@
 |email             | string        | null: false, unique: true      |
 |nickname          | string        | null: false, unique: true      |
 |encrypted_password| string        | null: false                    |
-|date              | string        | null: false                    |
+|birth_date        | date          | null: false                    |
 |first_name        | string        | null: false                    |
 |last_name         | string        | null: false                    |
 |first_name(kana)  | string        | null: false                    |
@@ -25,9 +25,9 @@
 |introduction           | text          | null: false                    |
 |category_id            | integer       | null: false                    |
 |state_id               | integer       | null: false                    |
-|burden-of-delivery_id  | integer       | null: false                    |
-|shipment- source_id    | integer       | null: false                    |
-|shipment-date_id       | integer       | null: false                    |
+|burden_of_delivery_id  | integer       | null: false                    |
+|prefectures_id         | integer       | null: false                    |
+|shipment_date_id       | integer       | null: false                    |
 |user                   | references    | null: false, foreign_key: true |
 
 ### Association
@@ -50,12 +50,12 @@
 
 |Column                 |Type           |Options                         |
 |---------------------- |-------------- |------------------------------- |
-|postal-code            | string        | null: false                    |
+|postal_code            | string        | null: false                    |
 |prefectures_id         | integer       | null: false                    |
 |municipality           | string        | null: false                    |
 |address                | string        | null: false                    |
-|building-name          | string        |                                |
-|phone-number           | string        | null: false                    |
+|building_name          | string        |                                |
+|phone_number           | string        | null: false                    |
 |purchase               | references    | null: false, foreign_key: true |
 
 ### Association
