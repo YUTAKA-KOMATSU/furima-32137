@@ -1,24 +1,62 @@
-# README
+## users
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column     |Type           |Options                         |
+|---------- |-------------- |------------------------------- |
+|email      | string        | null: false, unique: true      |
+|nickname   | string        | null: false, unique: true      |
+|password   | string        | null: false                    |
+|name       | string        | null: false                    |
+|birth      | string        | null: false                    |
+|user       | references    | null: false, foreign_key: true |
 
-Things you may want to cover:
+### Association
+- has_many :items
+- has_many :purchases
 
-* Ruby version
+## items
 
-* System dependencies
+|Column                 |Type           |Options                         |
+|---------------------- |-------------- |------------------------------- |
+|name                   | string        | null: false                    |
+|price                  | integer       | null: false                    |
+|introduction           | text          | null: false                    |
+|category               | text          | null: false                    |
+|state                  | text          | null: false                    |
+|burden-of-delivery     | text          | null: false                    |
+|shipment- source       | text          | null: false                    |
+|shipment-date          | text          | null: false                    |
+|image                  | ActiveStorage | null: false                    |
+|user_id                | references    | null: false, foreign_key: true |
 
-* Configuration
+### Association
+- belongs_to :user
+- has_one :purchases
 
-* Database creation
+## purchases
 
-* Database initialization
+|Column                 |Type           |Options                         |
+|---------------------- |-------------- |------------------------------- |
+|credit-number          | integer       | null: false                    |
+|expiration-date        | integer       | null: false                    |
+|security-code          | integer       | null: false                    |
+|user_id                | references    | null: false, foreign_key: true |
+|address_id             | references    | null: false, foreign_key: true |
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+- belongs_to :user
+- has_one :items
 
-* Deployment instructions
+## addresses
 
-* ...
+|Column                 |Type           |Options      |
+|---------------------- |-------------- |------------ |
+|postal-code            | integer       | null: false |
+|prefectures            | text          | null: false |
+|municipality           | text          | null: false |
+|address                | text          | null: false |
+|building-name          | text          |             |
+|phone-number           | integer       | null: false |
+
+### Association
+- has_one :purchases
