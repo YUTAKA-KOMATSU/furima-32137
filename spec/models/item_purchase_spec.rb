@@ -28,6 +28,11 @@ describe ItemPurchase, type: :model do
         @item_purchase.valid?
         expect(@item_purchase.errors.full_messages).to include("Prefecture can't be blank")
       end
+      it "都道府県についての情報が1の場合は購入できない" do
+        @item_purchase.prefecture_id = 1
+        @item_purchase.valid?
+        expect(@item_purchase.errors.full_messages).to include("Prefecture can't be blank")
+      end
       it "市町村区が空では購入できない" do
         @item_purchase.municipality = nil
         @item_purchase.valid?
