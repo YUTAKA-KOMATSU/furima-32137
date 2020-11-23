@@ -10,6 +10,10 @@ describe ItemPurchase, type: :model do
       it "全て正しい入力をすれば購入できる" do
         expect(@item_purchase).to be_valid
       end
+      it "建物名が空でも購入できる" do
+        @item_purchase.building_name = nil
+        expect(@item_purchase).to be_valid
+      end
     end
 
     context '商品購入がうまくいかないとき' do
